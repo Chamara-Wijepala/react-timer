@@ -4,12 +4,24 @@ function App() {
 	const [seconds, setSeconds] = useState(0);
 	const [minutes, setMinutes] = useState(0);
 	const [hours, setHours] = useState(0);
+	const [intervalId, setIntervalId] = useState(0);
 
-	useEffect(() => {
+	const startTimer = () => {
 		const interval = setInterval(() => {
 			setSeconds((prev) => prev + 1);
 		}, 1000);
 
+		setIntervalId(interval);
+	};
+
+	const clearTimer = () => {
+		clearInterval(intervalId);
+		setHours(0);
+		setMinutes(0);
+		setSeconds(0);
+	};
+
+	useEffect(() => {
 		if (Number(seconds) === 60) {
 			setMinutes((prev) => prev + 1);
 			setSeconds(0);
@@ -18,9 +30,7 @@ function App() {
 			setHours((prev) => prev + 1);
 			setMinutes(0);
 		}
-
-		return () => clearInterval(interval);
-	}, [seconds, minutes, hours]);
+	}, [seconds]);
 
 	return (
 		<div className="content">
@@ -35,8 +45,12 @@ function App() {
 			</div>
 
 			<div className="button-wrapper">
-				<button className="btn start-btn">Start</button>
-				<button className="btn reset-btn">Reset</button>
+				<button className="btn start-btn" onClick={startTimer}>
+					Start
+				</button>
+				<button className="btn reset-btn" onClick={clearTimer}>
+					Reset
+				</button>
 			</div>
 		</div>
 	);
