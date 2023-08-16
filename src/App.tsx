@@ -5,17 +5,25 @@ function App() {
 	const [minutes, setMinutes] = useState(0);
 	const [hours, setHours] = useState(0);
 	const [intervalId, setIntervalId] = useState(0);
+	const [isTimerActive, setIsTimerActive] = useState(false);
 
 	const startTimer = () => {
 		const interval = setInterval(() => {
 			setSeconds((prev) => prev + 1);
 		}, 1000);
 
+		setIsTimerActive(true);
 		setIntervalId(interval);
 	};
 
-	const clearTimer = () => {
+	const stopTimer = () => {
+		setIsTimerActive(false);
 		clearInterval(intervalId);
+	};
+
+	const clearTimer = () => {
+		stopTimer();
+
 		setHours(0);
 		setMinutes(0);
 		setSeconds(0);
@@ -45,8 +53,11 @@ function App() {
 			</div>
 
 			<div className="button-wrapper">
-				<button className="btn start-btn" onClick={startTimer}>
-					Start
+				<button
+					className="btn start-btn"
+					onClick={isTimerActive ? stopTimer : startTimer}
+				>
+					{isTimerActive ? 'Stop' : 'Start'}
 				</button>
 				<button className="btn reset-btn" onClick={clearTimer}>
 					Reset
