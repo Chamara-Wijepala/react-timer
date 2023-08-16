@@ -1,3 +1,9 @@
+:root {
+	--clr-light-200: #f6f6f6;
+	--clr-neutral-400: #1db954;
+	--clr-dark-900: #191414;
+}
+
 @font-face {
 	font-display: swap;
 	font-family: 'Plus Jakarta Sans';
