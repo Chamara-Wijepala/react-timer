@@ -42,26 +42,27 @@ function App() {
 
 	return (
 		<div className="content">
-			<div className="timer-wrapper">
-				<p className="timer">
-					<span>{hours < 10 ? `0${hours}` : hours}</span>
-					<span> : </span>
-					<span>{minutes < 10 ? `0${minutes}` : minutes}</span>
-					<span> : </span>
-					<span>{seconds < 10 ? `0${seconds}` : seconds}</span>
-				</p>
-			</div>
-
-			<div className="button-wrapper">
-				<button
-					className="btn start-btn"
-					onClick={isTimerActive ? stopTimer : startTimer}
-				>
-					{isTimerActive ? 'Stop' : 'Start'}
-				</button>
-				<button className="btn reset-btn" onClick={clearTimer}>
-					Reset
-				</button>
+			<div className="container">
+				<div className="timer-wrapper">
+					<p className="timer">
+						<span>{hours < 10 ? `0${hours}` : hours}</span>
+						<span> : </span>
+						<span>{minutes < 10 ? `0${minutes}` : minutes}</span>
+						<span> : </span>
+						<span>{seconds < 10 ? `0${seconds}` : seconds}</span>
+					</p>
+				</div>
+				<div className="button-wrapper">
+					<button
+						className="btn start-btn"
+						onClick={isTimerActive ? stopTimer : startTimer}
+					>
+						{isTimerActive ? 'Stop' : 'Start'}
+					</button>
+					<button className="btn reset-btn" onClick={clearTimer}>
+						Reset
+					</button>
+				</div>
 			</div>
 		</div>
 	);

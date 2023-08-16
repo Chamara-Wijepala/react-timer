@@ -73,3 +73,50 @@ button {
 		scroll-behavior: auto !important;
 	}
 }
+
+/* general */
+body,
+#root,
+.content {
+	min-height: 100vh;
+}
+
+body {
+	background-color: var(--clr-dark-900);
+}
+
+.content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.container {
+	padding: 1rem;
+}
+
+.timer {
+	color: var(--clr-light-200);
+	font-weight: 800;
+	font-size: clamp(1rem, 1rem + 8vw, 6rem);
+}
+
+.button-wrapper {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
+	padding-top: 1rem;
+}
+
+.btn {
+	padding: 1rem;
+	border-radius: 3rem;
+	font-size: clamp(1rem, 0.5rem + 2vw, 1.5rem);
+	font-weight: 500;
+}
+.start-btn {
+	background-color: var(--clr-neutral-400);
+}
+.reset-btn {
+	background-color: var(--clr-light-200);
+}
