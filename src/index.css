@@ -1,3 +1,19 @@
+@font-face {
+	font-display: swap;
+	font-family: 'Plus Jakarta Sans';
+	font-style: normal;
+	font-weight: 500;
+	src: url('./assets/plus-jakarta-sans-v8-latin-500.woff2') format('woff2');
+}
+
+@font-face {
+	font-display: swap;
+	font-family: 'Plus Jakarta Sans';
+	font-style: normal;
+	font-weight: 800;
+	src: url('./assets/plus-jakarta-sans-v8-latin-800.woff2') format('woff2');
+}
+
 /*  Edited version of CSS reset by Andy Bell */
 /*  https://piccalil.li/blog/a-modern-css-reset/ */
 
@@ -25,6 +41,7 @@ body {
 body {
 	text-rendering: optimizeSpeed;
 	line-height: 1.5;
+	font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 button {
